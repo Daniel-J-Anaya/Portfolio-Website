@@ -113,6 +113,12 @@ body > section {
 
 #hero span {
   color: var(--clr-accent);
+  display: inline-block;
+  transition: transform var(--transition)
+}
+
+#hero span:hover {
+  transform: translateY(-5px);
 }
 
 /* Underline style for Daniel Anaya */
@@ -134,7 +140,7 @@ body > section {
 
 #projects h2 {
   font-size: 2rem;
-  color: var(--clr-primary);
+  color: var(--clr-accent);
   margin-bottom: 2rem;
 }
 
@@ -153,7 +159,7 @@ body > section {
   border-radius: 0.5rem;
   padding: 1.5rem;
   text-align: left;
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -222,12 +228,14 @@ body > section {
 
 #contact .contact-text {
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 #contact h2 {
   font-size: 2rem;
-  margin-bottom: 0;
-  color: var(--clr-primary);
+  color: var(--clr-accent);
   /* Make sure margin-bottom is zero for flex alignment */
 }
 
@@ -238,6 +246,7 @@ body > section {
   flex-direction: column;
   gap: 2rem;
   position: relative;
+  padding-top: 3.5rem;
   padding-bottom: 3.5rem; /* space for button */
   width: 100%;
 }
@@ -312,6 +321,7 @@ footer {
   text-decoration: none;
   color: var(--clr-primary);
   transition: color var(--transition);
+  font-weight: 500;
 }
 
 #bottom-nav a:hover {
