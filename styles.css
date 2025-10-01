@@ -1,0 +1,441 @@
+/* ==============================
+   Variables & Reset
+   ============================== */
+:root {
+  --clr-bg: #333333;
+  --clr-primary: #ffffff;
+  --clr-accent: #f0c040;
+  --clr-text: #ddddddff;
+  --site-width: 69.375rem; /* ~1110px */
+  --gutter: 1.5rem;
+  --transition: 0.3s ease-in-out;
+  --nav-height: 4rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--clr-text);
+  background-color: var(--clr-bg);
+  line-height: 1.5;
+}
+
+/* ==============================
+   Layout Helpers
+   ============================== */
+.container {
+  max-width: var(--site-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* ==============================
+   Navigation
+   ============================== */
+#top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: rgba(27, 27, 27, 0.95);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#top-nav ul {
+  display: flex;
+  gap: 2rem;
+  margin-left: auto;
+  margin-right: 120px;
+  list-style: none;
+}
+
+#top-nav a {
+  text-decoration: none;
+  color: var(--clr-primary);
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+#top-nav a:hover {
+  color: var(--clr-accent);
+}
+
+body > section {
+  scroll-margin-top: var(--nav-height);
+}
+
+/* ==============================
+   Hero Section
+   ============================== */
+#hero {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2c2c2cff, #363636ff);
+  text-align: center;
+  padding: 0 var(--gutter);
+}
+
+#hero .hero-content {
+  /* no max-width here; handled by container */
+}
+
+#hero h1 {
+  font-size: 3rem;
+  color: var(--clr-primary);
+  margin-bottom: 1rem;
+}
+
+#hero p {
+  font-size: 1.25rem;
+  max-width: 30rem;
+  margin: 0 auto;
+  color: var(--clr-text);
+}
+
+#hero span {
+  color: var(--clr-accent);
+}
+
+/* Underline style for Daniel Anaya */
+.underline {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+  color: var(--clr-primary);
+}
+
+/* ==============================
+   Projects Section
+   ============================== */
+#projects {
+  padding: 4rem 0;
+  background-color: #242424ff;
+  text-align: center;
+}
+
+#projects h2 {
+  font-size: 2rem;
+  color: var(--clr-primary);
+  margin-bottom: 2rem;
+}
+
+/* Grid container for projects */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background-color: #1b1b1bff;
+  border: 1px solid #131313ff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: left;
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--clr-primary);
+}
+
+.project-card p {
+  font-size: 1rem;
+  color: var(--clr-text);
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-links a {
+  text-decoration: none;
+  color: var(--clr-primary);
+  font-size: 18px;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.project-links a:hover {
+  color: var(--clr-accent);
+  border-bottom-color: var(--clr-accent);
+}
+
+/* ==============================
+   Contact Section
+   ============================== */
+#contact {
+  padding: 4rem 0;
+  background-color: #242424ff;
+  text-align: center;
+}
+
+#contact .container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#contact .contact-text {
+  max-width: 100%;
+}
+
+#contact h2 {
+  font-size: 2rem;
+  margin-bottom: 0;
+  color: var(--clr-primary);
+  /* Make sure margin-bottom is zero for flex alignment */
+}
+
+#contact form {
+  max-width: 30rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  padding-bottom: 3.5rem; /* space for button */
+  width: 100%;
+}
+
+#contact input,
+#contact textarea {
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background: transparent;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  color: var(--clr-text);
+  transition: border-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: #999;
+  font-weight: 400;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border-bottom-color: var(--clr-accent);
+  outline: none;
+}
+
+#contact button {
+  background: transparent;
+  color: var(--clr-primary);
+  border: none;
+  border-bottom: 2px solid var(--clr-accent);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-left: auto;
+  display: block;
+  white-space: nowrap;
+  width: auto;
+}
+
+#contact button:hover {
+  color: var(--clr-accent);
+}
+
+#contact button:active {
+  color: #a06d00;
+}
+
+/* ==============================
+   Footer
+   ============================== */
+footer {
+  padding: 2rem var(--gutter);
+  background-color: #131313ff;
+}
+
+#bottom-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+#bottom-nav a {
+  text-decoration: none;
+  color: var(--clr-primary);
+  transition: color var(--transition);
+}
+
+#bottom-nav a:hover {
+  color: var(--clr-accent);
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-media a {
+  color: var(--clr-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.social-media a:hover {
+  color: var(--clr-accent);
+}
+
+.social-media img {
+  max-width: 32px;
+  filter: invert(100%);
+}
+
+.social-media img:hover {
+  transition: transform .4s ease;
+  transform: scale(1.1);
+}
+
+/* ==============================
+   Medium Screens (≥768px)
+   ============================== */
+@media (min-width: 768px) {
+  /* Hero Section */
+  #hero {
+    justify-content: flex-start;
+    padding: 0;
+    text-align: left;
+  }
+  
+  #hero .container {
+    /* Ensures max width and consistent padding */
+  }
+
+  #hero h1 {
+    font-size: 3.5rem;
+  }
+
+  #hero p {
+    max-width: none;
+  }
+
+  /* Projects Section */
+  #projects {
+    text-align: left;
+  }
+
+  #projects .container {
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  /* Grid switches to 2 columns */
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: var(--site-width);
+    margin: 0 auto;
+    gap: 2rem;
+  }
+
+  /* Contact Section */
+  #contact {
+    text-align: left;
+  }
+
+  #contact .contact-text {
+  max-width: 50%;
+  }
+
+  #contact .container {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 4rem;
+    max-width: var(--site-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  #contact h2 {
+    flex: 1;
+    margin-bottom: 0;
+    text-align: left;
+    display: flex;
+    align-items: center; /* vertically center header with form */
+  }
+
+  #contact p {
+    flex: 1;
+    margin-bottom: 0;
+    text-align: left;
+    display: flex;
+    align-items: center; /* vertically center header with form */
+  }
+
+  #contact form {
+    flex: 2;
+    margin: 0;
+  }
+}
+
+/* ==============================
+   Large Screens (≥1024px)
+   ============================== */
+@media (min-width: 1024px) {
+  #hero h1 {
+    font-size: 4rem;
+  }
+
+  #hero p {
+    font-size: 1.5rem;
+  }
+}
