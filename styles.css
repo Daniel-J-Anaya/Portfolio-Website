@@ -118,7 +118,7 @@ body > section {
 }
 
 #hero span:hover {
-  transform: translateY(-5px);
+  transform: translateY(-20px);
 }
 
 /* Underline style for Daniel Anaya */
