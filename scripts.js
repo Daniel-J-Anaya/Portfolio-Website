@@ -18,7 +18,7 @@ document.querySelector("form").addEventListener("submit", async function (e) {
   }
 
   // Feedback
-  alert("Sending message...");
+  alert("Thank you for the message!");
 
   // Backend
 });
