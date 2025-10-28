@@ -17,9 +17,4 @@ document.querySelector("form").addEventListener("submit", function (e) {
     alert("Please enter a valid email address.");
     return;
   }
-
-  // Feedback
-  alert("Thank you for the message!");
-
-  // Backend
 });
